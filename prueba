@@ -1,0 +1,72 @@
+class SimulatedAnnealingOptimization{
+
+   Solution optimum=null;
+
+   int MAX_ITERATIONS=1000, N_NEIGHBOURHS_EXPLORED =10, niterations;
+
+   double temperature=10000;
+
+   Solution candidata;
+
+   Solution current;
+
+protected Solution simulatedAnnealing(Solution sol)
+
+{
+
+   //Inicializamos las soluciones y el vecindario    
+
+ current=sol;
+
+optimum=sol;
+
+current.resetNeighbourhood(); 
+
+// Bucle Principal
+
+ niterations=0;
+
+  while(niterations<max_iterations)
+
+   {
+
+        // Exploramos el vecindario
+
+       for(int i=0;i<n_neighbourhs_explored;i++)
+
+        {
+
+         candidata=current.getRandomNeighbour();
+
+           diferencia=candidata.getFitness()-current.getFitness();
+
+            // Actualizamos el óptimo y la solución actual
+
+          if(diferencia < 0)
+
+            {
+
+                current = candidata;
+
+                if(current.getFitness() < optimum.getFitness())
+
+                      optimum=current;
+          }else if(Random() < probAceptacion(diferencia))
+
+              current=candidata;
+
+           
+
+}
+
+     temperature=cooler.enfria(temperature, diferencia);
+
+    niterations++;
+
+    }
+
+return optimum;   
+
+}
+
+}
