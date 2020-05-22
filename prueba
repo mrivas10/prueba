@@ -14,7 +14,6 @@ protected Solution simulatedAnnealing(Solution sol)
 
 {
 
-   //Inicializamos las soluciones y el vecindario    
 
  current=sol;
 
